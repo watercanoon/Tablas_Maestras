@@ -89,6 +89,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>fact2</finalName>
     </build>
 
 </project>
