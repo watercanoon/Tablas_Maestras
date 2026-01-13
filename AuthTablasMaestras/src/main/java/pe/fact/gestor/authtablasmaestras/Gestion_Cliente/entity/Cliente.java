@@ -14,7 +14,7 @@ public class Cliente {
     private Integer codiClie;
 
     @Column(name = "codiTipoDocu")
-    private String codiTipoDocu; // CHAR(2)
+    private String codiTipoDocu;
 
     @Column(name = "numeDocu")
     private String numeDocu;
@@ -34,8 +34,11 @@ public class Cliente {
     @Column(name = "mailClie")
     private String mailClie;
 
+    @Column(name = "direClie") // Campo agregado
+    private String direClie;
+
     @Column(name = "sexoClie")
-    private String sexoClie; // CHAR(1)
+    private String sexoClie;
 
     @Column(name = "celuClie")
     private String celuClie;
@@ -43,6 +46,7 @@ public class Cliente {
     @Column(name = "passClie")
     private String passClie;
 
+    // Campos de Auditoria (Solo para recepcion, no mapeados a tabla directamente en insert simple)
     @Transient
     private Integer usuarioRegistroId;
 }

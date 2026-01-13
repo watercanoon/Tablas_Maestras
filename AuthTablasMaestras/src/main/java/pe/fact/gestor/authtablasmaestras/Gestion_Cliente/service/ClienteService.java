@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.fact.gestor.authtablasmaestras.Gestion_Cliente.entity.Cliente;
 import pe.fact.gestor.authtablasmaestras.Gestion_Cliente.repository.ClienteRepository;
-
+import java.util.List;
 
 @Service
 public class ClienteService {
@@ -12,51 +12,42 @@ public class ClienteService {
     @Autowired
     private ClienteRepository repository;
 
-    public void crear(Cliente c) {
+    public void registrar(Cliente c) {
+        // Validar usuario auditoria por defecto
         if(c.getUsuarioRegistroId() == null) c.setUsuarioRegistroId(1);
-
-        // Manejo de nulos para que el SP no falle
-        if(c.getRaznSociClie() == null) c.setRaznSociClie("-");
+        if(c.getRaznSociClie() == null) c.setRaznSociClie("-"); // Evitar null en SP
 
         repository.registrarCliente(
-                c.getCodiTipoDocu(),
-                c.getNumeDocu(),
-                c.getAppaClie(),
-                c.getApmaClie(),
-                c.getNombClie(),
-                c.getRaznSociClie(),
-                c.getMailClie(),
-                c.getSexoClie(),
-                c.getCeluClie(),
-                c.getPassClie(),
-                c.getUsuarioRegistroId()
+                c.getCodiTipoDocu(), c.getNumeDocu(), c.getAppaClie(), c.getApmaClie(),
+                c.getNombClie(), c.getRaznSociClie(), c.getMailClie(), c.getDireClie(),
+                c.getSexoClie(), c.getCeluClie(), c.getPassClie(), c.getUsuarioRegistroId()
         );
     }
-    public java.util.List<Cliente> listarTodos() {
-        return repository.listarClientes();
-    }
-    public void actualizar(Integer id, Cliente c) {
-        if(id == null) {
-            throw new RuntimeException("El ID del cliente es obligatorio para actualizar");
-        }
 
-        // Asumimos usuario 1 si no viene (auditoría)
+    public void modificar(Cliente c) {
+        if(c.getCodiClie() == null) throw new RuntimeException("ID requerido para modificar");
         if(c.getUsuarioRegistroId() == null) c.setUsuarioRegistroId(1);
-        if(c.getRaznSociClie() == null) c.setRaznSociClie("-");
 
         repository.actualizarCliente(
-                id,
-                c.getCodiTipoDocu(),
-                c.getNumeDocu(),
-                c.getAppaClie(),
-                c.getApmaClie(),
-                c.getNombClie(),
-                c.getRaznSociClie(),
-                c.getMailClie(),
-                c.getSexoClie(),
-                c.getCeluClie(),
-                c.getPassClie(),
-                c.getUsuarioRegistroId()
+                c.getCodiClie(), c.getCodiTipoDocu(), c.getNumeDocu(), c.getAppaClie(),
+                c.getApmaClie(), c.getNombClie(), c.getRaznSociClie(), c.getMailClie(),
+                c.getDireClie(), c.getSexoClie(), c.getCeluClie(), c.getUsuarioRegistroId()
         );
+    }
+
+    public void eliminar(Integer id) {
+        repository.eliminarCliente(id);
+    }
+
+    public List<Cliente> listar() {
+        return repository.listarClientes();
+    }
+
+    public Cliente buscarPorId(Integer id) {
+        return repository.buscarPorCodigo(id);
+    }
+
+    public List<Cliente> buscarPorDireccion(String direccion) {
+        return repository.buscarPorDireccion(direccion);
     }
 }
