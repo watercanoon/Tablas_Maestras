@@ -1,6 +1,6 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Personal.service;
 
-
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pe.fact.gestor.authtablasmaestras.Gestion_Personal.entity.Personal;
 import pe.fact.gestor.authtablasmaestras.Gestion_Personal.repository.PersonalRepository;
@@ -17,11 +17,13 @@ public class PersonalServiceImpl implements PersonalService {
     }
 
     @Override
+    @Transactional
     public List<Personal> listar() {
         return personalRepository.listarPersonal();
     }
 
     @Override
+    @Transactional
     public void agregar(Personal personal) {
         personalRepository.agregarPersonal(
                 personal.getTipoDocu(),
@@ -36,6 +38,7 @@ public class PersonalServiceImpl implements PersonalService {
     }
 
     @Override
+    @Transactional
     public void modificar(Personal personal) {
         personalRepository.modificarPersonal(
                 personal.getCodiPers(),
@@ -50,4 +53,3 @@ public class PersonalServiceImpl implements PersonalService {
         );
     }
 }
-

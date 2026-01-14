@@ -1,6 +1,5 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Concepto.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
@@ -13,11 +12,11 @@ public interface ConceptoRepository extends JpaRepository<Concepto, Integer> {
 
     // LISTAR
     @Procedure(procedureName = "sp_fact_concepto_listar")
-    List<Concepto> listarConceptos();
+    List<Concepto> listarConcepto();
 
-    // AGREGAR
-    @Procedure(procedureName = "sp_fact_concepto_agregar")
-    void agregarConcepto(
+    // INSERTAR
+    @Procedure(procedureName = "sp_fact_concepto_insertar")
+    void insertarConcepto(
             String p_nombConc,
             Double p_montConc,
             Integer p_codiPlan,
@@ -25,9 +24,9 @@ public interface ConceptoRepository extends JpaRepository<Concepto, Integer> {
             String p_estdConc
     );
 
-    // MODIFICAR
+    // ACTUALIZAR
     @Procedure(procedureName = "sp_fact_concepto_actualizar")
-    void modificarConcepto(
+    void actualizarConcepto(
             Integer p_codiConc,
             String p_nombConc,
             Double p_montConc,
@@ -36,4 +35,3 @@ public interface ConceptoRepository extends JpaRepository<Concepto, Integer> {
             String p_estdConc
     );
 }
-

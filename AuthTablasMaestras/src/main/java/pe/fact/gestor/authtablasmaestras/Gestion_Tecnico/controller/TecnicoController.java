@@ -1,9 +1,8 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.controller;
 
-
-import org.springframework.web.bind.annotation.*;
 import pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.entity.Tecnico;
 import pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.service.TecnicoService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,19 +17,19 @@ public class TecnicoController {
         this.tecnicoService = tecnicoService;
     }
 
-    // GET → LISTAR
+    // GET
     @GetMapping("/listar")
     public List<Tecnico> listar() {
         return tecnicoService.listar();
     }
 
-    // POST → AGREGAR
+    // POST
     @PostMapping("/agregar")
     public void agregar(@RequestBody Tecnico tecnico) {
         tecnicoService.agregar(tecnico);
     }
 
-    // PUT → MODIFICAR
+    // PUT
     @PutMapping("/modificar")
     public void modificar(@RequestBody Tecnico tecnico) {
         tecnicoService.modificar(tecnico);

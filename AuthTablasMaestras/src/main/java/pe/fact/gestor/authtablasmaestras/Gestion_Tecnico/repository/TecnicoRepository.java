@@ -1,6 +1,5 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
@@ -13,11 +12,11 @@ public interface TecnicoRepository extends JpaRepository<Tecnico, Integer> {
 
     // LISTAR
     @Procedure(procedureName = "sp_fact_tecnico_listar")
-    List<Tecnico> listarTecnicos();
+    List<Tecnico> listarTecnico();
 
     // INSERTAR
-    @Procedure(procedureName = "sp_fact_tecnico_agregar")
-    void agregarTecnico(
+    @Procedure(procedureName = "sp_fact_tecnico_insertar")
+    void insertarTecnico(
             String p_nombTecn,
             String p_dniTecn
     );

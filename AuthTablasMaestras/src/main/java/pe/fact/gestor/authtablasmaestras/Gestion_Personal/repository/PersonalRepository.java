@@ -10,12 +10,10 @@ import java.util.List;
 @Repository
 public interface PersonalRepository extends JpaRepository<Personal, Integer> {
 
-    // LISTAR
     @Procedure(procedureName = "sp_fact_personal_listar")
     List<Personal> listarPersonal();
 
-    // AGREGAR
-    @Procedure(procedureName = "sp_fact_personal_agregar")
+    @Procedure(procedureName = "sp_fact_personal_insertar")
     void agregarPersonal(
             String p_TipoDocu,
             String p_numeDocu,
@@ -27,7 +25,6 @@ public interface PersonalRepository extends JpaRepository<Personal, Integer> {
             Integer p_estaPers
     );
 
-    // MODIFICAR
     @Procedure(procedureName = "sp_fact_personal_actualizar")
     void modificarPersonal(
             Integer p_codiPers,

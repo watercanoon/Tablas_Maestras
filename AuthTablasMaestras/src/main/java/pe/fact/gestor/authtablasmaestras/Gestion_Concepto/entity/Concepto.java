@@ -8,15 +8,25 @@ public class Concepto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codiConc")
     private Integer codiConc;
 
+    @Column(name = "nombConc")
     private String nombConc;
+
+    @Column(name = "montConc")
     private Double montConc;
+
+    @Column(name = "codiPlan")
     private Integer codiPlan;
+
+    @Column(name = "codiMes")
     private Integer codiMes;
+
+    @Column(name = "estdConc")
     private String estdConc;
 
-    // Getters y Setters
+    // getters y setters
     public Integer getCodiConc() {
         return codiConc;
     }

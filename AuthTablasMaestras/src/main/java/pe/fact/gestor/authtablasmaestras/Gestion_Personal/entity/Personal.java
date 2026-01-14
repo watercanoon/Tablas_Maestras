@@ -8,35 +8,18 @@ public class Personal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codiPers")
     private Integer codiPers;
 
-    @Column(name = "TipoDocu")
     private String tipoDocu;
-
-    @Column(name = "numeDocu")
     private String numeDocu;
-
-    @Column(name = "appaPers")
     private String appaPers;
-
-    @Column(name = "apmaPers")
     private String apmaPers;
-
-    @Column(name = "nombPers")
     private String nombPers;
-
-    @Column(name = "codiHora")
     private Integer codiHora;
-
-    @Column(name = "codiRol")
     private Integer codiRol;
-
-    @Column(name = "estaPers")
     private Integer estaPers;
 
-    // ===== GETTERS Y SETTERS =====
-
+    // GETTERS & SETTERS
     public Integer getCodiPers() {
         return codiPers;
     }

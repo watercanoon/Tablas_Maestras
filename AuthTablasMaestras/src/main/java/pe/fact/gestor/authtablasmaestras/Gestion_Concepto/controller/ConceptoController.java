@@ -1,6 +1,5 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Concepto.controller;
 
-
 import org.springframework.web.bind.annotation.*;
 import pe.fact.gestor.authtablasmaestras.Gestion_Concepto.entity.Concepto;
 import pe.fact.gestor.authtablasmaestras.Gestion_Concepto.service.ConceptoService;
@@ -18,19 +17,16 @@ public class ConceptoController {
         this.conceptoService = conceptoService;
     }
 
-    // GET → LISTAR
     @GetMapping("/listar")
     public List<Concepto> listar() {
         return conceptoService.listar();
     }
 
-    // POST → AGREGAR
     @PostMapping("/agregar")
     public void agregar(@RequestBody Concepto concepto) {
         conceptoService.agregar(concepto);
     }
 
-    // PUT → MODIFICAR
     @PutMapping("/modificar")
     public void modificar(@RequestBody Concepto concepto) {
         conceptoService.modificar(concepto);

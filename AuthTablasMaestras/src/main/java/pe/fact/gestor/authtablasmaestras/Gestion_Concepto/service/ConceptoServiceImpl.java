@@ -1,6 +1,6 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Concepto.service;
 
-
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pe.fact.gestor.authtablasmaestras.Gestion_Concepto.entity.Concepto;
 import pe.fact.gestor.authtablasmaestras.Gestion_Concepto.repository.ConceptoRepository;
@@ -17,13 +17,15 @@ public class ConceptoServiceImpl implements ConceptoService {
     }
 
     @Override
+    @Transactional
     public List<Concepto> listar() {
-        return conceptoRepository.listarConceptos();
+        return conceptoRepository.listarConcepto();
     }
 
     @Override
+    @Transactional
     public void agregar(Concepto concepto) {
-        conceptoRepository.agregarConcepto(
+        conceptoRepository.insertarConcepto(
                 concepto.getNombConc(),
                 concepto.getMontConc(),
                 concepto.getCodiPlan(),
@@ -33,8 +35,9 @@ public class ConceptoServiceImpl implements ConceptoService {
     }
 
     @Override
+    @Transactional
     public void modificar(Concepto concepto) {
-        conceptoRepository.modificarConcepto(
+        conceptoRepository.actualizarConcepto(
                 concepto.getCodiConc(),
                 concepto.getNombConc(),
                 concepto.getMontConc(),

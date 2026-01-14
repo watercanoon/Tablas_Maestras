@@ -1,6 +1,6 @@
 package pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.service;
 
-
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.entity.Tecnico;
 import pe.fact.gestor.authtablasmaestras.Gestion_Tecnico.repository.TecnicoRepository;
@@ -17,19 +17,22 @@ public class TecnicoServiceImpl implements TecnicoService {
     }
 
     @Override
+    @Transactional
     public List<Tecnico> listar() {
-        return tecnicoRepository.listarTecnicos();
+        return tecnicoRepository.listarTecnico();
     }
 
     @Override
+    @Transactional
     public void agregar(Tecnico tecnico) {
-        tecnicoRepository.agregarTecnico(
+        tecnicoRepository.insertarTecnico(
                 tecnico.getNombTecn(),
                 tecnico.getDniTecn()
         );
     }
 
     @Override
+    @Transactional
     public void modificar(Tecnico tecnico) {
         tecnicoRepository.actualizarTecnico(
                 tecnico.getCodiTecn(),
