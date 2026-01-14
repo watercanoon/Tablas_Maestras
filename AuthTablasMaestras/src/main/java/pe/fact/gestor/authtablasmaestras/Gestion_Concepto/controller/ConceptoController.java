@@ -38,4 +38,5 @@ public class ConceptoController {
         return "Concepto eliminado correctamente.";
     }
 
+
 }
