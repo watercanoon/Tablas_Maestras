@@ -31,4 +31,11 @@ public class ConceptoController {
     public void modificar(@RequestBody Concepto concepto) {
         conceptoService.modificar(concepto);
     }
+
+    @DeleteMapping("/eliminar")
+    public String eliminar(@RequestParam int codiConc) {
+        conceptoService.eliminar(codiConc);
+        return "Concepto eliminado correctamente.";
+    }
+
 }

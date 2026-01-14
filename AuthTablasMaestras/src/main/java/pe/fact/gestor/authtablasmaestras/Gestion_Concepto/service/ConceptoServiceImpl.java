@@ -46,4 +46,11 @@ public class ConceptoServiceImpl implements ConceptoService {
                 concepto.getEstdConc()
         );
     }
+
+    @Override
+    @Transactional
+    public void eliminar(int codiConc) {
+        conceptoRepository.eliminarConcepto(codiConc);
+    }
+
 }

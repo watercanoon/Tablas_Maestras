@@ -28,4 +28,10 @@ public interface TecnicoRepository extends JpaRepository<Tecnico, Integer> {
             String p_nombTecn,
             String p_dniTecn
     );
+
+    // ELIMINAR
+    @Procedure(procedureName = "sp_fact_tecnico_eliminar")
+    void eliminarTecnico(Integer p_codiTecn);
+
+
 }

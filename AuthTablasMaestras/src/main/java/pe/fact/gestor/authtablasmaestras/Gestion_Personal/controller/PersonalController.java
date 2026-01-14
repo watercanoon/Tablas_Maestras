@@ -31,4 +31,10 @@ public class PersonalController {
     public void modificar(@RequestBody Personal personal) {
         personalService.modificar(personal);
     }
+
+    @DeleteMapping("/eliminar")
+    public void eliminar(@RequestParam Integer codiPers) {
+        personalService.eliminar(codiPers);
+    }
+
 }

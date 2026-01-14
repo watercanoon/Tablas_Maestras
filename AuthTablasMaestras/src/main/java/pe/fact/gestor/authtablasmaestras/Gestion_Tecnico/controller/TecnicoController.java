@@ -34,4 +34,15 @@ public class TecnicoController {
     public void modificar(@RequestBody Tecnico tecnico) {
         tecnicoService.modificar(tecnico);
     }
+
+    @DeleteMapping("/eliminar")
+    public String eliminar(@RequestParam int codiTecn) {
+        boolean eliminado = tecnicoService.eliminar(codiTecn);
+        if (eliminado) {
+            return "Técnico eliminado correctamente.";
+        } else {
+            return "No se encontró el técnico con ID: " + codiTecn;
+        }
+    }
+
 }

@@ -11,4 +11,6 @@ public interface TecnicoService {
     void agregar(Tecnico tecnico);
 
     void modificar(Tecnico tecnico);
+
+    boolean eliminar(int codiTecn);
 }

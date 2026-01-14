@@ -37,4 +37,8 @@ public interface PersonalRepository extends JpaRepository<Personal, Integer> {
             Integer p_codiRol,
             Integer p_estaPers
     );
+
+    @Procedure(procedureName = "sp_fact_personal_eliminar")
+    void eliminarPersonal(Integer p_codiPers);
+
 }

@@ -8,4 +8,5 @@ public interface PersonalService {
     List<Personal> listar();
     void agregar(Personal personal);
     void modificar(Personal personal);
+    void eliminar(Integer codiPers);
 }

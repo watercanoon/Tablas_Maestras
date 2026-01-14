@@ -10,4 +10,6 @@ public interface ConceptoService {
     void agregar(Concepto concepto);
 
     void modificar(Concepto concepto);
+
+    void eliminar(int codiConc);
 }

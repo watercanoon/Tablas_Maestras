@@ -40,4 +40,12 @@ public class TecnicoServiceImpl implements TecnicoService {
                 tecnico.getDniTecn()
         );
     }
+
+    @Override
+    @Transactional
+    public boolean eliminar(int codiTecn) {
+        tecnicoRepository.eliminarTecnico(codiTecn);
+        return true;
+    }
+
 }

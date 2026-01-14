@@ -52,4 +52,11 @@ public class PersonalServiceImpl implements PersonalService {
                 personal.getEstaPers()
         );
     }
+
+    @Override
+    @Transactional
+    public void eliminar(Integer codiPers) {
+        personalRepository.eliminarPersonal(codiPers);
+    }
+
 }

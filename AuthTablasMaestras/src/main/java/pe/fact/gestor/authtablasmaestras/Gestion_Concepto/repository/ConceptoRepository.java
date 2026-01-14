@@ -34,4 +34,9 @@ public interface ConceptoRepository extends JpaRepository<Concepto, Integer> {
             Integer p_codiMes,
             String p_estdConc
     );
+
+    // ELIMINAR
+    @Procedure(procedureName = "sp_fact_concepto_eliminar")
+    void eliminarConcepto(Integer p_codiConc);
+
 }
