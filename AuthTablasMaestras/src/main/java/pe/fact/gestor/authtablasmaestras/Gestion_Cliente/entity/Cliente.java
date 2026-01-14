@@ -34,7 +34,7 @@ public class Cliente {
     @Column(name = "mailClie")
     private String mailClie;
 
-    @Column(name = "direClie") // Campo agregado
+    @Column(name = "direClie")
     private String direClie;
 
     @Column(name = "sexoClie")
@@ -46,7 +46,9 @@ public class Cliente {
     @Column(name = "passClie")
     private String passClie;
 
-    // Campos de Auditoria (Solo para recepcion, no mapeados a tabla directamente en insert simple)
+    @Column(name = "estdClie")
+    private String estdClie; // 'V' = Vigente/Activo, 'S' = Suspendido
+
     @Transient
     private Integer usuarioRegistroId;
 }

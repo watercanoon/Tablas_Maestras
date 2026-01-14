@@ -18,12 +18,14 @@ public class Plan {
     private String nombPlan;
 
     @Column(name = "montPlan")
-    private BigDecimal montPlan; // BigDecimal es mejor para dinero que Double
+    private BigDecimal montPlan;
 
     @Column(name = "tipoPlan")
     private Integer tipoPlan;
 
-    // Este campo no está en la tabla, es temporal para enviar el ID del usuario que registra
+    @Column(name = "estdPlan")
+    private String estdPlan; // 'V' = Activo, 'A' = Anulado
+
     @Transient
     private Integer usuarioRegistroId;
 }

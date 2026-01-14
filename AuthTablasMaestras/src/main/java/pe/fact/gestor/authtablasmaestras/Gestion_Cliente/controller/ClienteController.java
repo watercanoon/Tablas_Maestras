@@ -8,7 +8,8 @@ import pe.fact.gestor.authtablasmaestras.Gestion_Cliente.service.ClienteService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/api/cliente")
+@CrossOrigin(origins = "*")
 public class ClienteController {
 
     @Autowired
