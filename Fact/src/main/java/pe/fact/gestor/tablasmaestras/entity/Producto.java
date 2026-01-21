@@ -16,6 +16,18 @@ public class Producto {
     @Column(name = "nombProd")
     private String nombProd;
 
+    public Producto() {
+    }
+
+    public Producto(Integer codiProd) {
+        this.codiProd = codiProd;
+    }
+
+    public Producto(Integer codiProd, String nombProd) {
+        this.codiProd = codiProd;
+        this.nombProd = nombProd;
+    }
+
     // --- CAMPOS ELIMINADOS PARA COINCIDIR CON LA BD ---
     // Como la tabla no tiene precio, stock ni estado, los quitamos de aquí.
     // Si en el futuro los agregas a la BD, descomenta esto.

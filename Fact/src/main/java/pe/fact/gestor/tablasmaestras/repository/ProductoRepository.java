@@ -6,4 +6,5 @@ import pe.fact.gestor.tablasmaestras.entity.Producto;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
+
 }

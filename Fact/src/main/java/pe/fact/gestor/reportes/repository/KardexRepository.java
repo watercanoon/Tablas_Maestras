@@ -23,4 +23,7 @@ public interface KardexRepository extends JpaRepository<Kardex, Integer> {
             "ORDER BY k.fechMovi DESC")
     List<ReporteKardexDTO> reportePorFechas(@Param("fechaInicio") LocalDateTime fechaInicio,
                                             @Param("fechaFin") LocalDateTime fechaFin);
+
+    @Query(value = "SELECT TOP 1 cantSald FROM kardex WHERE codiProd = ?1 ORDER BY codiKard DESC", nativeQuery = true)
+    Integer findLastSaldo(Integer codiProd);
 }

@@ -13,6 +13,20 @@ public class Tecnico {
     private String nombTecn;
     private String dniTecn;
 
+    public Tecnico() {
+    }
+
+    public Tecnico(String nombTecn, String dniTecn) {
+        this.nombTecn = nombTecn;
+        this.dniTecn = dniTecn;
+    }
+
+    public Tecnico(Integer codiTecn, String nombTecn, String dniTecn) {
+        this.codiTecn = codiTecn;
+        this.nombTecn = nombTecn;
+        this.dniTecn = dniTecn;
+    }
+
     // getters y setters
     public Integer getCodiTecn() {
         return codiTecn;
